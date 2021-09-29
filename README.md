@@ -18,51 +18,48 @@
 		<img alt="Reddit" src="https://img.shields.io/reddit/subreddit-subscribers/nginxproxymanager?label=Reddit%20Community&style=for-the-badge">
 	</a>
 </p>
-
-This project comes as a pre-built docker image that enables you to easily forward to your websites
-running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.
+Este proyecto viene como una imagen docker prediseñada, que le permite reenviar fácilmente a sus sitios web que se ejecutan en modo local o de otro modo, incluido SSL gratuito, sin tener que saber demasiado sobre Nginx o Letsencrypt.
 
 - [Quick Setup](#quick-setup)
 - [Full Setup](https://nginxproxymanager.com/setup/)
 - [Screenshots](https://nginxproxymanager.com/screenshots/)
 
-## Project Goal
+## Objetivo del proyecto
 
-I created this project to fill a personal need to provide users with a easy way to accomplish reverse
-proxying hosts with SSL termination and it had to be so easy that a monkey could do it. This goal hasn't changed.
-While there might be advanced options they are optional and the project should be as simple as possible
-so that the barrier for entry here is low.
+Se creó este proyecto para satisfacer una necesidad personal de proporcionar a los usuarios una manera fácil de lograr hosts de proxy inverso con terminación SSL y tenía que ser tan fácil que un mono pudiera hacerlo. Este objetivo no ha cambiado. Si bien puede haber opciones avanzadas, son opcionales y el proyecto debe ser lo más simple posible para que la barrera de entrada aquí sea baja.
+
 
 <a href="https://www.buymeacoffee.com/jc21" target="_blank"><img src="http://public.jc21.com/github/by-me-a-coffee.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
 
 
-## Features
+## Características
 
-- Beautiful and Secure Admin Interface based on [Tabler](https://tabler.github.io/)
-- Easily create forwarding domains, redirections, streams and 404 hosts without knowing anything about Nginx
-- Free SSL using Let's Encrypt or provide your own custom SSL certificates
-- Access Lists and basic HTTP Authentication for your hosts
-- Advanced Nginx configuration available for super users
-- User management, permissions and audit log
+- Interfaz de administración hermosa y segura basada en [Tabler](https://tabler.github.io/)
+- Cree fácilmente dominios de reenvío, redirecciones, transmisiones y hosts 404 sin saber nada sobre Nginx
+- SSL gratuito usando Let's Encrypt o proporcione sus propios certificados SSL personalizados
+- Listas de acceso y autenticación HTTP básica para sus hosts
+- Configuración avanzada de Nginx disponible para superusuarios
+- Gestión de usuarios, permisos y registro de auditoría
 
 
-## Hosting your home network
+## Hosting para su red local
 
-I won't go in to too much detail here but here are the basics for someone new to this self-hosted world.
 
-1. Your home router will have a Port Forwarding section somewhere. Log in and find it
-2. Add port forwarding for port 80 and 443 to the server hosting this project
-3. Configure your domain name details to point to your home, either with a static ip or a service like DuckDNS or [Amazon Route53](https://github.com/jc21/route53-ddns)
-4. Use the Nginx Proxy Manager as your gateway to forward to your other web based services
+No entraré en demasiados detalles aquí, pero aquí están los conceptos básicos para alguien nuevo en este mundo autohospedado.
 
-## Quick Setup
+1. El enrutador local tendrá una sección de reenvío de puertos en algún lugar. Inicie sesión y encuéntrelo
+2. Agregue el reenvío de puertos para los puertos 80 y 443 al servidor que aloja este proyecto
+3. Configure los detalles de su nombre de dominio para que apunten a servidor, ya sea con una IP estática o un servicio como DuckDNS o [Amazon Route53](https://github.com/jc21/route53-ddns)
+4. Utilice Nginx Proxy Manager como su puerta de enlace para reenviar a sus otros servicios basados en web
 
-1. Install Docker and Docker-Compose
+## Configuración rápida
 
-- [Docker Install documentation](https://docs.docker.com/install/)
-- [Docker-Compose Install documentation](https://docs.docker.com/compose/install/)
+1. Instalar Docker y Docker-Compose
 
-2. Create a docker-compose.yml file similar to this:
+- [Documentación de instalación de Docker](https://docs.docker.com/install/)
+- [Documentación de instalación de Docker-Compose](https://docs.docker.com/compose/install/)
+
+2. Cree un archivo docker-compose.yml similar a este:
 
 ```yml
 version: '3'
@@ -95,31 +92,30 @@ services:
       - ./data/mysql:/var/lib/mysql
 ```
 
-3. Bring up your stack
+3. Trae tu stack(pila)
 
 ```bash
 docker-compose up -d
 ```
 
-4. Log in to the Admin UI
+4. Ingicie sesión en la interfaz de usuario Admin
 
-When your docker container is running, connect to it on port `81` for the admin interface.
-Sometimes this can take a little bit because of the entropy of keys.
+Cuando su contenedor docker se esté ejecutando, conéctese a él en el puerto `81` para la interfaz de administración.
+A veces, esto puede tardar un poco debido a la entropía de las claves.
 
 [http://127.0.0.1:81](http://127.0.0.1:81)
 
 Default Admin User:
 ```
-Email:    admin@example.com
+Email:   admin@example.com
 Password: changeme
 ```
 
-Immediately after logging in with this default user you will be asked to modify your details and change your password.
+Inmediatamente después de iniciar sesión con este usuario predeterminado, se le pedirá que modifique sus datos y cambie su contraseña.
 
+## Colaboradores
 
-## Contributors
-
-Special thanks to the following contributors:
+Un agradecimiento especial a los siguientes colaboradores:
 
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
